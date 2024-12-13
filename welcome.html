@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant App</title>
+    <style>
+        /* General Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Background Video */
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        #login-button {
+            background: #ff5733;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #login-button:hover {
+            background: #ff7849;
+        }
+
+        /* Welcome Section */
+        #welcome-section {
+            text-align: center;
+            margin-top: 100px;
+            padding: 20px;
+        }
+
+        #welcome-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        #welcome-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #welcome-section a {
+            text-decoration: none;
+            color: #fff;
+            background: #ff5733;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        #welcome-section a:hover {
+            background: #ff7849;
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Menu Section */
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .menu-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 200px;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .menu-item h3 {
+            margin: 10px 0;
+        }
+
+        .menu-item p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .menu-item button {
+            background: #ff5733;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu-item button:hover {
+            background: #ff7849;
+        }
+
+        /* Cart Section */
+        #cart-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-items li {
+            margin: 10px 0;
+        }
+
+        #checkout {
+            background: #ff5733;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #checkout:hover {
+            background: #ff7849;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video id="background-video" autoplay muted loop>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Header -->
+    <header>
+        <h1>Flavor Haven</h1>
+        <nav>
+            <ul>
+                <li><a href="#welcome-section">Home</a></li>
+                <li><a href="#menu-section">Menu</a></li>
+                <li><a href="#about-section">About Us</a></li>
+                <li><a href="#reservation-section">Reservation</a></li>
+                <li><a href="#contact-section">Contact Us</a></li>
+                <li><a href="#cart-section">Cart</a></li>
+            </ul>
+        </nav>
+        <!-- Link to Login Page -->
+        <button id="login-button" onclick="window.location.href='login.html'">Login</button>
+    </header>
+
+    <!-- Welcome Section -->
+    <section id="welcome-section">
+        <h1>Welcome to Our Restaurant</h1>
+        <p>Experience the finest dining with our world-class chefs and a cozy atmosphere. Explore our exquisite menu with a variety of dishes that cater to every palate.</p>
+        <a href="#menu-section">Explore Menu</a>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu-section">
+        <h2>Our Menu</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <img src="pic1.jpg" alt="Pizza">
+                <h3>Pizza</h3>
+                <p>$15.99</p>
+                <button onclick="addToCart('Pizza', 15.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="pic2.jpg" alt="Burger">
+                <h3>Burger</h3>
+                <p>$10.99</p>
+                <button onclick="addToCart('Burger', 10.99)">Add to Cart</button>
+            </div>
+            <div class="menu-item">
+                <img src="pic3.jpg" alt="Salad">
+                <h3>Salad</h3>
+                <p>$8.99</p>
+                <button onclick="addToCart('Salad', 8.99)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart-section">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="total-amount">Total: $0.00</p>
+        <button id="checkout" onclick="checkout()">Checkout</button>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-section">
+        <h2>About Us</h2>
+        <p>Our restaurant has been serving the community with the best quality food and hospitality for over a decade. We are committed to providing you with an unforgettable dining experience.</p>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation-section">
+        <h2>Reservation</h2>
+        <p>Reserve your table now and enjoy a seamless dining experience with your loved ones.</p>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact-section">
+        <h2>Contact Us</h2>
+        <p>Feel free to reach out for reservations, inquiries, or feedback. We would love to hear from you!</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Our Restaurant. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(item, price) {
+            cart.push({ item, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById("cart-items");
+            const totalAmount = document.getElementById("total-amount");
+            cartItems.innerHTML = "";
+            let total = 0;
+            cart.forEach(({ item, price }) => {
+                const li = document.createElement("li");
+                li.textContent = `${item} - $${price.toFixed(2)}`;
+                cartItems.appendChild(li);
+                total += price;
+            });
+            totalAmount.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        function checkout() {
+            alert("Proceeding to payment...");
+            // Mock payment processing logic can be added here
+        }
+    </script>
+</body>
+</html>
